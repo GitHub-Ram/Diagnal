@@ -29,7 +29,8 @@ class MainActivity : ComponentActivity() {
                         viewModel.videoPagingFlow,
                         viewModel.videoSearchPagingFlow,
                         viewModel.searchStringState,
-                        viewModel.searchState
+                        viewModel.searchState,
+                        viewModel.searchTextState
                     )
                 }
             }

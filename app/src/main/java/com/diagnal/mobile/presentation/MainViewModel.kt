@@ -36,6 +36,9 @@ class MainViewModel @Inject constructor(@ApplicationContext context: Context,pag
     private val _searchState = mutableStateOf(false)
     val searchState: MutableState<Boolean> = _searchState
 
+    private val _searchTextState = mutableStateOf("")
+    val searchTextState: MutableState<String> = _searchTextState
+
     private lateinit var pagingSourceSearch : LocalVideoSearchSource
 
     val videoSearchPagingFlow = Pager(PagingConfig(pageSize = 20)) {

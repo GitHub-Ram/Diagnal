@@ -6,7 +6,6 @@ import androidx.paging.compose.LazyPagingItems
 import com.diagnal.mobile.models.VideoDetail
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -26,7 +25,8 @@ fun VideoDetailScreen(
     videoDetails: Flow<PagingData<VideoDetail>>,
     videoSearchDetails: Flow<PagingData<VideoDetail>>,
     searchStringState: MutableState<String>,
-    searchState: MutableState<Boolean>
+    searchState: MutableState<Boolean>,
+    searchTextState: MutableState<String>
 ){
     var isSearchActive = remember { searchState }
     val activeFlow: Flow<PagingData<VideoDetail>> = when (isSearchActive.value) {
@@ -52,7 +52,8 @@ fun VideoDetailScreen(
                     onSearchTextChange = { searchText ->
                         searchStringState.value = searchText
                         // Perform search or update search results based on the search text
-                    }
+                    },
+                    searchTextState = searchTextState
                 )
             } else {
                 normalTopAppBar(
